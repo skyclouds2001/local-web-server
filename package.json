@@ -14,8 +14,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "local-web-server.helloWorld",
-        "title": "Hello World"
+        "command": "local-web-server.startServer",
+        "title": "Start Local Web Server"
+      },
+      {
+        "command": "local-web-server.stopServer",
+        "title": "Stop Local Web Server"
       }
     ]
   },
@@ -38,5 +42,5 @@
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2"
   },
-  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
+  "packageManager": "pnpm@9.12.1"
 }
