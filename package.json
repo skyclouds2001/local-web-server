@@ -1,16 +1,26 @@
 {
   "name": "local-web-server",
-  "displayName": "local-web-server",
-  "description": "A local deployed web server for develop",
   "version": "0.0.1",
+  "publisher": "skyclouds2001",
   "engines": {
     "vscode": "^1.102.0"
   },
+  "license": "MIT",
+  "displayName": "Local Web Server",
+  "description": "A local deployed web server for develop",
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "web server"
+  ],
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "preview": false,
   "main": "./out/extension.js",
+  "browser": "./out/extension.js",
   "contributes": {
     "commands": [
       {
@@ -23,14 +33,14 @@
       }
     ]
   },
-  "scripts": {
-    "vscode:prepublish": "pnpm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "pnpm run compile && pnpm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+  "activationEvents": [],
+  "badges": [],
+  "markdown": "github",
+  "qna": "marketplace",
+  "sponsor": {
+    "url": "https://github.com/sponsors/skyclouds2001"
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/vscode": "^1.102.0",
     "@types/mocha": "^10.0.10",
@@ -42,5 +52,49 @@
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2"
   },
+  "extensionPack": [],
+  "extensionDependencies": [],
+  "extensionKind": ["ui", "workspace"],
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "vscode:uninstall": "echo 'Uninstalling Local Web Server Extension'",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "icon": "images/web_server.png",
+  "pricing": "Free",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
+  "homepage": "https://github.com/skyclouds2001/local-web-server/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/skyclouds2001/local-web-server/issues",
+    "email": "skyclouds2001@163.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skyclouds2001/local-web-server.git"
+  },
+  "author": {
+    "name": "skyclouds2001",
+    "email": "skyclouds2001@163.com",
+    "url": "https://skyclouds2001.github.io/"
+  },
+  "contributors": [
+    "skyclouds2001"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/skyclouds2001"
+  },
+  "private": true,
   "packageManager": "pnpm@9.12.1"
 }
