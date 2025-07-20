@@ -33,7 +33,9 @@
       }
     ]
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "badges": [],
   "markdown": "github",
   "qna": "marketplace",
