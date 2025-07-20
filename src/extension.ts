@@ -1,25 +1,18 @@
 import * as vscode from 'vscode';
-import { startServerCommand, stopServerCommand } from './constant';
+import { startServerCommand, stopServerCommand, toggleServerCommand } from './constant';
+import { startServer, stopServer, toggleServer } from './core';
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
-		vscode.commands.registerCommand(startServerCommand, () => {
-			vscode.window.showInformationMessage('Starting Local Web Server...');
-
-			setTimeout(() => {
-				vscode.window.showInformationMessage('Local Web Server started successfully!');
-			}, 2500);
-		})
+		vscode.commands.registerCommand(startServerCommand, startServer)
 	);
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand(stopServerCommand, () => {
-			vscode.window.showInformationMessage('Stopping Local Web Server...');
+		vscode.commands.registerCommand(stopServerCommand, stopServer)
+	);
 
-			setTimeout(() => {
-				vscode.window.showInformationMessage('Local Web Server stopped successfully!');
-			}, 2500);
-		})
+	context.subscriptions.push(
+		vscode.commands.registerCommand(toggleServerCommand, toggleServer)
 	);
 }
 
