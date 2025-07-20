@@ -44,19 +44,21 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/vscode": "^1.102.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@typescript-eslint/eslint-plugin": "^8.31.1",
-    "@typescript-eslint/parser": "^8.31.1",
+    "@types/vscode": "^1.102.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.25.1",
     "typescript": "^5.8.3",
-    "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "typescript-eslint": "^8.37.0"
   },
   "extensionPack": [],
   "extensionDependencies": [],
-  "extensionKind": ["ui", "workspace"],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
     "vscode:uninstall": "echo 'Uninstalling Local Web Server Extension'",
