@@ -68,7 +68,7 @@
     "lint": "eslint src",
     "test": "vscode-test"
   },
-  "icon": "images/web_server.png",
+  "icon": "static/web_server.png",
   "pricing": "Free",
   "capabilities": {
     "untrustedWorkspaces": {
