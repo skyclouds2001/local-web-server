@@ -12,15 +12,37 @@ let statusBarItem: vscode.StatusBarItem | null = null;
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
-		vscode.commands.registerCommand(startServerCommand, startServer)
+		vscode.commands.registerCommand(startServerCommand, () => {
+      vscode.window.showInformationMessage('Starting Local Web Server...');
+
+      setTimeout(() => {
+        hasActiveServer = true;
+        statusBarItem!.tooltip = 'Click to stop the Local Web Server';
+        vscode.window.showInformationMessage('Local Web Server started successfully!');
+      }, 2500);
+    })
 	);
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand(stopServerCommand, stopServer)
+		vscode.commands.registerCommand(stopServerCommand, () => {
+      vscode.window.showInformationMessage('Stopping Local Web Server...');
+
+      setTimeout(() => {
+        hasActiveServer = false;
+        statusBarItem!.tooltip = 'Click to start the Local Web Server';
+        vscode.window.showInformationMessage('Local Web Server stopped successfully!');
+      }, 2500);
+    })
 	);
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand(toggleServerCommand,  toggleServer)
+		vscode.commands.registerCommand(toggleServerCommand,  () => {
+      if (!hasActiveServer) {
+        vscode.commands.executeCommand(startServerCommand);
+      } else {
+        vscode.commands.executeCommand(stopServerCommand);
+      }
+    })
 	);
 
   const statusBarAlignment = vscode.window.activeTextEditor ? vscode.StatusBarAlignment.Right : vscode.StatusBarAlignment.Left;
@@ -58,31 +80,3 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 export function deactivate() {}
-
-function startServer () {
-  vscode.window.showInformationMessage('Starting Local Web Server...');
-
-  setTimeout(() => {
-    hasActiveServer = true;
-    statusBarItem!.tooltip = 'Click to stop the Local Web Server';
-    vscode.window.showInformationMessage('Local Web Server started successfully!');
-  }, 2500);
-};
-
-function stopServer () {
-  vscode.window.showInformationMessage('Stopping Local Web Server...');
-
-  setTimeout(() => {
-    hasActiveServer = false;
-    statusBarItem!.tooltip = 'Click to start the Local Web Server';
-    vscode.window.showInformationMessage('Local Web Server stopped successfully!');
-  }, 2500);
-};
-
-function toggleServer () {
-  if (!hasActiveServer) {
-    startServer();
-  } else {
-    stopServer();
-  }
-};
