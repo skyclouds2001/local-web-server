@@ -31,7 +31,30 @@
         "command": "local-web-server.stopServer",
         "title": "Stop Local Web Server"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "local-web-server-management",
+          "title": "Local Web Server Manager",
+          "icon": "static/web_server.svg"
+        }
+      ]
+    },
+    "views": {
+      "local-web-server-management": [
+        {
+					"type": "tree",
+          "id": "local-web-server-list",
+          "name": "List"
+        },
+        {
+					"type": "webview",
+          "id": "local-web-server-configuration",
+          "name": "Configuration"
+        }
+      ]
+    }
   },
   "activationEvents": [
     "onStartupFinished"
