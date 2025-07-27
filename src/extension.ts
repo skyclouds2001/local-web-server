@@ -5,10 +5,12 @@ const extensionName = 'Local Web Server';
 const startServerCommand = 'local-web-server.startServer';
 const stopServerCommand = 'local-web-server.stopServer';
 const toggleServerCommand = 'local-web-server.toggleServer';
+const listViewId = 'local-web-server-list';
 const configurationViewId = 'local-web-server-configuration';
 
 let hasActiveServer = false;
 let statusBarItem: vscode.StatusBarItem | null = null;
+const servers: string[] = [];
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
@@ -76,6 +78,21 @@ export function activate(context: vscode.ExtensionContext) {
         retainContextWhenHidden: true,
       }
     })
+  );
+
+  context.subscriptions.push(
+    vscode.window.registerTreeDataProvider(listViewId, new class implements vscode.TreeDataProvider<string> {
+      getTreeItem(element: string): vscode.TreeItem {
+        return new vscode.TreeItem(element);
+      }
+
+      getChildren(element?: string): Thenable<string[]> {
+        if (!element) {
+          return Promise.resolve(servers);
+        }
+        return Promise.resolve([]);
+      }
+    }())
   );
 }
 
